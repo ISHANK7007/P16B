@@ -1,0 +1,1 @@
+Input: Task Context → Memory Resolution → Template Selection → Context Enrichment → Prompt Generation

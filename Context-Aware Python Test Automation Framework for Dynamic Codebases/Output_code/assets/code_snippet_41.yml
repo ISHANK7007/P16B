@@ -1,0 +1,9 @@
+precedence:
+  global_precedence:
+    - "user_explicit"      # Explicit user statements have highest precedence
+    - "conversation_recent" # Recent conversation context
+    - "user_implicit"      # Inferred user preferences
+    - "session_state"      # Current session state
+    - "user_profile"       # Persistent user profile
+    - "knowledge_base"     # Domain knowledge
+    - "default"            # Default values

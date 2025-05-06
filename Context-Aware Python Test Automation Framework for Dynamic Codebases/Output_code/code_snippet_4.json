@@ -1,0 +1,29 @@
+DirectedAcyclicGraph {
+  nodes: [Node],
+  edges: [Edge],
+  
+  // Metadata
+  root_nodes: [UUID],
+  leaf_nodes: [UUID],
+  
+  // Navigation helpers
+  paths: {
+    winning_path: [UUID], // Path to final selected mutation
+    critical_decision_points: [UUID] // High-impact arbitration points
+  }
+}
+
+Node {
+  node_id: UUID,
+  entry_reference: UUID, // Points to journal entry
+  node_type: Enum[PROPOSAL, ARBITRATION, MERGE, SPLIT],
+  metadata: JSONObject
+}
+
+Edge {
+  source_node: UUID,
+  target_node: UUID,
+  edge_type: Enum[SUCCEEDED_BY, INFLUENCED, CONFLICTED_WITH, MERGED_INTO],
+  edge_weight: Float, // Influence strength
+  metadata: JSONObject
+}

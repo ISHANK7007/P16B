@@ -1,0 +1,23 @@
+slots:
+  user_preference:
+    key: "preferences.communication_style"
+    required: true
+    resolution:
+      strategy: "most_recent"
+      fallback: "neutral"
+      preserve_conflict: true
+      source_tracking: true
+      
+  product_options:
+    key: "products.available_options" 
+    required: true
+    resolution:
+      strategy: "union"      # Merge available options from all sources
+      fallback: []
+      
+  pricing_info:
+    key: "products.pricing"
+    required: true
+    resolution:
+      strategy: "override"   # Take pricing from highest precedence source
+      source_tracking: true  # Include source of pricing information

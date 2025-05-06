@@ -1,0 +1,67 @@
+# Example serialized prompt construction pipeline
+version: '2.0'
+metadata:
+  id: 'pipeline-f8a72d9e'
+  created: '2023-11-14T16:42:31Z'
+  executor: 'agent-research-assistant-v3'
+  execution_time_ms: 128
+
+graph:
+  nodes:
+    - id: 'base_template'
+      type: 'template'
+      version: '1.3.1'
+      content_hash: 'sha256:e8b1d9f3...'
+      content: |
+        {{ system_instruction }}
+        
+        Context:
+        {{ context }}
+        
+        User Query: {{ query }}
+      
+    - id: 'context_retrieval'
+      type: 'retriever'
+      version: '2.0.0'
+      parameters:
+        source: 'vector_db'
+        strategy: 'hybrid_search'
+        top_k: 5
+      input_nodes: []
+      snapshot_hash: 'sha256:7cf8a2d1...'
+    
+    - id: 'context_ranking'
+      type: 'transformer'
+      version: '1.1.0'
+      operation: 'sort_by_relevance'
+      input_nodes: ['context_retrieval']
+      snapshot_hash: 'sha256:3e4f8b2a...'
+    
+    - id: 'template_filling'
+      type: 'merge'
+      input_nodes: ['base_template', 'context_ranking']
+      mapping:
+        context: 'context_ranking.output'
+        system_instruction: 'constants.researcher_instruction'
+        query: 'request.query'
+      snapshot_hash: 'sha256:9d1f7e2c...'
+
+  edges:
+    - from: 'context_retrieval'
+      to: 'context_ranking'
+    - from: 'context_ranking'
+      to: 'template_filling'
+    - from: 'base_template'
+      to: 'template_filling'
+
+constants:
+  researcher_instruction: |
+    You are a research assistant with expertise in...
+
+snapshots:
+  'sha256:7cf8a2d1...': {
+    # Compressed/referenced context retrieval results
+  }
+  'sha256:3e4f8b2a...': {
+    # Ranked context data
+  }

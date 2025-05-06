@@ -1,0 +1,8 @@
+slot:
+  key: "user.preference"
+  required: true
+  resolution:
+    strategy: "most_recent"  # Options: most_recent, highest_confidence, union, override, weighted_merge
+    fallback: "default_value"
+    preserve_conflict: false  # Whether to include conflict metadata in output
+    source_tracking: true     # Include source layer in output

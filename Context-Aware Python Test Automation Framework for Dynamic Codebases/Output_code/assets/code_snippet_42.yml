@@ -1,0 +1,10 @@
+precedence:
+  template_precedence:
+    "personal_recommendation":
+      - "user_explicit"
+      - "user_profile"      # User profile elevated for personalization
+      - "user_implicit"
+      - "conversation_recent"
+      - "session_state"
+      - "knowledge_base"
+      - "default"

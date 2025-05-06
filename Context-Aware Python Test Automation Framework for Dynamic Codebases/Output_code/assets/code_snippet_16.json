@@ -1,0 +1,23 @@
+{
+  "pattern_id": "uuid",
+  "pattern_type": "lexical|structural|semantic",
+  "pattern_representation": {
+    "lexical": "text fragment or regex",
+    "embedding": [0.1, 0.2, ...],
+    "structural": "JSON path or template fragment"
+  },
+  "context_requirements": {
+    "preceding": [...],
+    "following": [...],
+    "global": [...]
+  },
+  "outcome_correlations": [
+    {
+      "outcome_type": "refusal|hallucination|low_confidence|success",
+      "correlation_strength": 0.85,
+      "sample_count": 142,
+      "first_observed": "timestamp",
+      "last_observed": "timestamp"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Context Change → Impact Assessment → Dependency Graph Traversal → Minimal Regeneration Set

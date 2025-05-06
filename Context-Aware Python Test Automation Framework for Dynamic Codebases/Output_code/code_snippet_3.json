@@ -1,0 +1,53 @@
+JournalEntry {
+  entry_id: UUID,
+  timestamp: ISO8601,
+  entry_type: Enum[PROPOSAL, ARBITRATION, VALIDATION, FINAL_SELECTION],
+  
+  // Actor information
+  actor_id: UUID,
+  actor_type: Enum[AGENT, ARBITER, VALIDATOR, SYSTEM],
+  actor_context_fingerprint: String, // Hash of context window
+  
+  // Content (depends on entry_type)
+  content: {
+    // For PROPOSAL
+    mutation: {
+      diff: DiffRepresentation,
+      rationale: String,
+      confidence_score: Float,
+      constraint_evaluations: [ConstraintScore]
+    },
+    
+    // For ARBITRATION
+    arbitration: {
+      candidates: [UUID], // References to proposal entries
+      voting_matrix: Map<AgentID, Map<CandidateID, Score>>,
+      selected_candidate: UUID,
+      explanation_tags: [ExplanationTag]
+    },
+    
+    // For VALIDATION
+    validation: {
+      validated_mutation: UUID,
+      constraint_results: [ConstraintResult],
+      is_valid: Boolean,
+      validation_feedback: String
+    },
+    
+    // For FINAL_SELECTION
+    selection: {
+      selected_mutation: UUID,
+      overridden_validation: Boolean,
+      override_reason: String,
+      metadata: JSONObject
+    }
+  },
+  
+  // Graph connections
+  parent_entries: [UUID],
+  child_entries: [UUID],
+  
+  // Verification
+  entry_hash: String, // Hash of entry contents
+  previous_entry_hash: String // Hash of previous entry for tamper detection
+}

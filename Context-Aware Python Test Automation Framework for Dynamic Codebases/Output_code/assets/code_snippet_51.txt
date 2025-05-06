@@ -1,0 +1,12 @@
+User: "Can we continue working on that project plan we started last month?"
+
+System (internal):
+1. Identifies task reference ("project plan")
+2. Applies temporal qualifier ("last month")
+3. Queries TemporalMemoryLinker for matching task threads
+4. Retrieves anchor points from relevant sessions
+5. Assembles temporal context with key milestones
+6. Injects synthesized context into prompt
+
+System (response):
+"I see we were working on the marketing campaign project plan. Last time, we had finalized the budget allocation and timeline, and you wanted to revisit the social media strategy this week. Would you like to continue from there?"

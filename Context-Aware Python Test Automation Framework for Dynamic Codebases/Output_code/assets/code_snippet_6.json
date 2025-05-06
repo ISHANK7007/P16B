@@ -1,0 +1,28 @@
+{
+  "verification_id": "uuid",
+  "timestamp": "iso-datetime",
+  "prompt_template_id": "template.reference.path",
+  "constraint_schema_id": "constraint.reference.path",
+  "verification_result": "FAIL",
+  "violations": [
+    {
+      "type": "SCHEMA_VIOLATION",
+      "severity": "CRITICAL",
+      "location": "response.recommendations[2]",
+      "constraint_reference": "structural.schema.product_recommendation",
+      "description": "Missing required field 'price'",
+      "context": "{ ... relevant response excerpt ... }",
+      "remediation_suggestions": [
+        "Add post-processing to ensure 'price' is populated",
+        "Modify template instruction to emphasize required fields"
+      ]
+    },
+    // Additional violations...
+  ],
+  "metadata": {
+    "model_version": "gpt-4",
+    "temperature": 0.7,
+    "context_tokens": 1542,
+    "response_tokens": 763
+  }
+}

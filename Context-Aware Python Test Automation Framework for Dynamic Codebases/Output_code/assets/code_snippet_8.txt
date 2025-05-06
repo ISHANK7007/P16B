@@ -1,0 +1,1 @@
+Session Context → Semantic Digest Generation → Delta Computation → Cached Context + Deltas → Selective Rehydration → Optimized Prompt Context

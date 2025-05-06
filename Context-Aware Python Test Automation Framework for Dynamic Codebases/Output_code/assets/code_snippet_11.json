@@ -1,0 +1,9 @@
+PromptTemplateRegistry
+├── [role].[task].[model].[language]
+    ├── template: {...}
+    ├── constraints: {...} 
+    ├── memory_rules: {...}
+    └── metadata: 
+        ├── version_info: {...}
+        ├── binding_rules: {...}
+        └── compatibility_matrix: {...}

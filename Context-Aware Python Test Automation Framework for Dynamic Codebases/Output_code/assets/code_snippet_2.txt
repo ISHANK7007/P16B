@@ -1,0 +1,6 @@
+ConstraintSchema
+├── Structural Constraints (format, sections, headings)
+├── Content Constraints (banned phrases, required elements)
+├── Quantitative Constraints (token limits, response length)
+├── Stylistic Constraints (tone, formality, persona)
+└── Semantic Constraints (reasoning patterns, factuality requirements)

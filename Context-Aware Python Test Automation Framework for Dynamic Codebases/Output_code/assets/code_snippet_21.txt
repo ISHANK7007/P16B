@@ -1,0 +1,7 @@
+class MutationGuardian {
+  validatePreMutation(profile, proposedMutation, constraints)
+  applyWithCheckpoint(profile, mutation)
+  verifyPostMutation(profile, appliedMutation, constraints)
+  rollbackToCheckpoint(profile, checkpointId)
+  logViolation(violation, context)
+}

@@ -1,0 +1,21 @@
+{
+  "rule_id": "uuid",
+  "trigger_patterns": ["pattern_id_1", "pattern_id_2"],
+  "trigger_logic": "ANY|ALL|COMPLEX_EXPR",
+  "transformation": {
+    "type": "replace|augment|restructure|reorder",
+    "operation": "transformation-specific-operation",
+    "parameters": {...}
+  },
+  "application_weight": 0.75,
+  "effectiveness_metrics": {
+    "success_rate_delta": 0.23,
+    "confidence_improvement": 0.18,
+    "application_count": 87
+  },
+  "applicability_conditions": {
+    "models": ["gpt-4", "claude-v2"],
+    "template_types": ["customer_service.*", "content_generation.*"],
+    "context_requirements": [...]
+  }
+}

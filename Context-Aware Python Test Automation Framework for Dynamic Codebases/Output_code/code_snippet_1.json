@@ -1,0 +1,12 @@
+{
+  "node_id": "mutation_738f4d",
+  "timestamp": "2025-05-05T15:22:43Z",
+  "anchor_type": "constraint_resolution_complete",
+  "content_snapshot": {...},
+  "child_nodes": [
+    {
+      "node_id": "mutation_9a3c2e",
+      "diff": {"operations": [...], "metadata": {...}}
+    }
+  ]
+}

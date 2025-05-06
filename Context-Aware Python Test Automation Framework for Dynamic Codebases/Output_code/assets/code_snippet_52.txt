@@ -1,0 +1,11 @@
+User: "Did I tell you about my dog?"
+
+System (internal):
+1. Identifies entity query ("my dog")
+2. Checks entity registry across all user sessions
+3. Follows entity reference chain
+4. Retrieves and assembles entity information
+5. Includes confidence scoring for attributes
+
+System (response):
+"Yes, you've mentioned your dog Rusty before. You told me he's a 3-year-old golden retriever that you adopted last year, and that he recently started obedience training."

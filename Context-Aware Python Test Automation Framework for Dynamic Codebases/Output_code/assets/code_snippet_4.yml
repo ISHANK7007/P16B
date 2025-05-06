@@ -1,0 +1,13 @@
+constraints:
+  structural:
+    format: "json"
+    schema: "customer_response_schema_v2"
+  content:
+    banned_phrases: ["inappropriate_terms_list"]
+    required_elements: ["greeting", "solution", "follow_up"]
+  quantitative:
+    max_tokens: 500
+    min_tokens: 100
+  semantic:
+    reasoning_pattern: "step_by_step"
+    factuality: "high"

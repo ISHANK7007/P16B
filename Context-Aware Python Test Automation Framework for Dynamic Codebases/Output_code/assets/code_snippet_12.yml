@@ -1,0 +1,45 @@
+id: "customer_service.complaint_resolution.gpt4.en"
+version: "2.3.1"
+
+template:
+  content: "..."
+  variables: [...]
+  references: [...]
+
+constraints:
+  schema_ref: "schemas/response/structured_complaint_resolution.v2"
+  format: "json"
+  required_sections: ["acknowledgment", "solution", "follow_up"]
+  banned_phrases: ["policy_ref:inappropriate_terms"]
+  token_limits: 
+    min: 100
+    max: 800
+
+memory_rules:
+  retrieval:
+    strategy: "semantic_nearest"
+    sources: ["customer_history", "product_knowledge", "policy_db"]
+    recency_weight: 0.4
+    relevance_weight: 0.6
+  injection:
+    pre_reasoning: ["customer_identity", "product_context"]
+    inline: ["relevant_policies", "similar_cases"]
+    post_processing: ["satisfaction_metrics", "resolution_status"]
+  context_limits:
+    max_items_per_source: 5
+    max_tokens_per_item: 200
+
+binding_rules:
+  enforcement: "strict"  # alternatives: flexible, advisory
+  dependencies:
+    - "product_knowledge.schemas.v2.*"
+    - "policy_db.constraints.v1.3+"
+  compatibility:
+    min_constraint_version: "2.0.0"
+    min_memory_rule_version: "1.5.0"
+
+metadata:
+  author: "Template Engineering Team"
+  last_updated: "2025-01-15"
+  test_coverage: 92.7
+  performance_metrics: {...}

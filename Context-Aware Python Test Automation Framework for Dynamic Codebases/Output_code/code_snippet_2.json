@@ -1,0 +1,21 @@
+MutationLedger {
+  prompt_id: UUID,
+  creation_timestamp: ISO8601,
+  schema_version: String,
+  
+  // Primary journal entries (chronological)
+  journal_entries: [JournalEntry],
+  
+  // Reference points (full snapshots every N mutations)
+  anchor_points: [AnchorPoint],
+  
+  // Relationship graph
+  conflict_graph: DirectedAcyclicGraph,
+  
+  // Indexing and retrieval optimizations
+  indices: {
+    agent_id: Map<AgentID, [EntryID]>,
+    constraint_type: Map<ConstraintType, [EntryID]>,
+    mutation_outcome: Map<Outcome, [EntryID]>
+  }
+}

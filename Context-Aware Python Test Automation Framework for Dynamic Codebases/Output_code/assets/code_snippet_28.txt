@@ -1,0 +1,1 @@
+Memory Collection → Salience Ranking → Elision Planning → Compression Application → Token Verification → Adaptive Adjustment
